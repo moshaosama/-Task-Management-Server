@@ -32,5 +32,5 @@ Follow these steps to get your development environment set up.
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/moshaosama/-Task-Management.git
-cd Task-Management
+git clone https://github.com/moshaosama/-Task-Management-Server.git
+cd Task-Management-Server
