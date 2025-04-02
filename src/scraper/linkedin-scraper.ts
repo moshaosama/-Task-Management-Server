@@ -18,7 +18,7 @@ export const scrapeLinkedIn = async (email: string, password: string) => {
 
   await page.waitForNavigation({ waitUntil: 'networkidle2' });
 
-  await new Promise((resolve) => setTimeout(resolve, 30000));
+  await new Promise((resolve) => setTimeout(resolve, 15000));
 
   let subheading = await page.evaluate(() =>
     document.querySelector('h3.profile-card-name')
