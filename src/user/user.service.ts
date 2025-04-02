@@ -39,9 +39,8 @@ export class UserService {
       email,
       password: hashedPassword,
       userName: linkedinData?.subheading?.trim(),
+      Photo: linkedinData?.PhotoUser?.trim(),
     });
-
-    console.log(linkedinData?.subheading);
 
     await user.save();
     return user;
@@ -61,7 +60,6 @@ export class UserService {
       access_token: this.jwtService.sign({ id: user._id, email: user.email }),
     };
   }
-
 
   private isValidLinkedInUrl(url: string): boolean {
     const linkedInPattern =

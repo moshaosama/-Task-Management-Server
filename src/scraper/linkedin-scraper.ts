@@ -18,15 +18,23 @@ export const scrapeLinkedIn = async (email: string, password: string) => {
 
   await page.waitForNavigation({ waitUntil: 'networkidle2' });
 
-  await new Promise((resolve) => setTimeout(resolve, 20000));
+  await new Promise((resolve) => setTimeout(resolve, 30000));
 
   let subheading = await page.evaluate(() =>
     document.querySelector('h3.profile-card-name')
       ? document.querySelector('h3.profile-card-name')!.textContent
       : 'Subheading not found',
   );
+  let PhotoUser = await page.evaluate(() => {
+    const imgElement = document.querySelector(
+      'img.profile-card-profile-picture',
+    );
+    return imgElement && imgElement instanceof HTMLImageElement
+      ? imgElement.src
+      : 'Image not found';
+  });
 
   await browser.close();
 
-  return { subheading };
+  return { subheading, PhotoUser };
 };

@@ -11,6 +11,9 @@ export class User {
 
   @Prop({ required: true })
   userName: string;
+
+  @Prop({ required: true })
+  Photo: string;
 }
 
 export type UserDocument = User & Document;
